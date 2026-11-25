@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aagam Lodaria — Software Engineer, Full Stack Developer & Data Analyst. Passionate about building digital experiences that make a difference.">
+  <meta name="keywords" content="Aagam Lodaria, Software Engineer, Full Stack Developer, Data Analyst, Portfolio">
+  <meta name="author" content="Aagam Lodaria">
+  <meta name="theme-color" content="#7c3aed">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aagam Lodaria — Portfolio">
+  <meta property="og:description" content="Software Engineer, Full Stack Developer & Data Analyst. Building digital experiences that make a difference.">
+  <meta property="og:type" content="website">
+
+  <title>Aagam Lodaria — Software Engineer & Developer</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body data-theme="violet">
+
+  <!-- Interactive Background Canvas (Neural / Hyperspace / Matrix) -->
+  <canvas id="neuroCanvas"></canvas>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ===== INTRO / SPLASH SCREEN (HYPERSPACE CYBER-GATE) ===== -->
+  <div class="intro-screen" id="introScreen">
+    <!-- Skip to Site Button -->
+    <button class="intro-skip" id="introSkip" aria-label="Enter Site">
+      <span>ENTER SITE</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </button>
+
+    <div class="intro-bg">
+      <div class="intro-orb intro-orb-1"></div>
+      <div class="intro-orb intro-orb-2"></div>
+      <div class="intro-orb intro-orb-3"></div>
+      <div class="intro-grid-perspective"></div>
+    </div>
+
+    <!-- Stage 1: "PORTFOLIO" 3D Chromatic Assembling Text -->
+    <div class="intro-text-wrapper" id="introTextWrapper">
+      <div class="intro-line-top" id="introLineTop"></div>
+      <h1 class="intro-title" id="introTitle">
+        <span class="intro-letter" data-letter="P">P</span>
+        <span class="intro-letter" data-letter="O">O</span>
+        <span class="intro-letter" data-letter="R">R</span>
+        <span class="intro-letter" data-letter="T">T</span>
+        <span class="intro-letter" data-letter="F">F</span>
+        <span class="intro-letter" data-letter="O">O</span>
+        <span class="intro-letter" data-letter="L">L</span>
+        <span class="intro-letter" data-letter="I">I</span>
+        <span class="intro-letter" data-letter="O">O</span>
+      </h1>
+      <div class="intro-subtitle" id="introSubtitle" data-text="AAGAM LODARIA">AAGAM LODARIA</div>
+      <div class="intro-line-bottom" id="introLineBottom"></div>
+      <div class="intro-loader-bar">
+        <div class="intro-loader-fill" id="introLoaderFill"></div>
+      </div>
+    </div>
+
+    <!-- Stage 2: 3D Holographic Photo Portal Reveal -->
+    <div class="intro-photo-wrapper" id="introPhotoWrapper">
+      <!-- Cyber Gyro Rings -->
+      <div class="intro-photo-ring intro-ring-outer" id="introRingOuter">
+        <div class="ring-tick ring-tick-0"></div>
+        <div class="ring-tick ring-tick-90"></div>
+        <div class="ring-tick ring-tick-180"></div>
+        <div class="ring-tick ring-tick-270"></div>
+      </div>
+      <div class="intro-photo-ring intro-ring-mid" id="introRingMid"></div>
+      <div class="intro-photo-ring intro-ring-inner" id="introRingInner"></div>
+      
+      <!-- Photo Container with Holographic Scan -->
+      <div class="intro-photo" id="introPhoto">
+        <img src="assets/images/aagam-photo.jpg" alt="Aagam Lodaria">
+        <div class="intro-photo-scanner"></div>
+        <div class="intro-photo-glitch"></div>
+      </div>
+
+      <div class="intro-photo-name" id="introPhotoName">Aagam Lodaria</div>
+      <div class="intro-photo-role" id="introPhotoRole">Software Engineer · Full Stack Developer · Data Analyst</div>
+    </div>
+
+    <!-- Stage 3 Warp Flare Shockwave -->
+    <div class="intro-shockwave" id="introShockwave"></div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Aagam<span class="logo-dot">.dev</span><span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+        <li><a href="resume.html" class="nav-link">Resume</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </nav>
+
+  <main id="mainContent">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="hero-orb"></div>
+        <div class="hero-orb"></div>
+        <div class="hero-orb"></div>
+        <div class="hero-orb"></div>
+      </div>
+      <div class="hero-grid"></div>
+
+      <div class="container">
+        <div class="hero-content-grid">
+          <div class="hero-content">
+            <div class="hero-greeting">
+              <span class="wave">👋</span>
+              <span>Hello, I'm</span>
+            </div>
+            <h1 class="hero-name">
+              Aagam<br>
+              <span class="highlight">Lodaria</span>
+            </h1>
+            <div class="hero-typing-wrapper">
+              <span class="typed-text" id="typedText"></span>
+              <span class="typing-cursor"></span>
+            </div>
+            <p class="hero-description">
+              Passionate about technology, problem-solving, and building digital experiences
+              that make a difference. Turning complex ideas into elegant solutions.
+            </p>
+            <div class="hero-cta">
+              <a href="skills.html" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Explore Tech Arsenal
+              </a>
+              <a href="projects.html" class="btn btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Featured Projects
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Photo with 3D Orbital Floating Badges -->
+          <div class="hero-photo-wrapper" id="heroPhotoWrapper">
+            <div class="hero-photo-glow"></div>
+            <div class="hero-gyro-ring hero-gyro-1"></div>
+            <div class="hero-gyro-ring hero-gyro-2"></div>
+            <div class="hero-photo" id="heroPhotoEl">
+              <img src="assets/images/aagam-photo.jpg" alt="Aagam Lodaria">
+              <div class="hero-photo-shine"></div>
+            </div>
+            
+            <!-- Orbiting 3D Tech Badges -->
+            <div class="orbit-badge orbit-badge-1" data-parallax="25">
+              <span class="badge-icon">⚡</span>
+              <span>Full Stack</span>
+            </div>
+            <div class="orbit-badge orbit-badge-2" data-parallax="-20">
+              <span class="badge-icon">💻</span>
+              <span>Systems Core</span>
+            </div>
+            <div class="orbit-badge orbit-badge-3" data-parallax="18">
+              <span class="badge-icon">🧠</span>
+              <span>DSA & OOP</span>
+            </div>
+            <div class="orbit-badge orbit-badge-4" data-parallax="-22">
+              <span class="badge-icon">🚀</span>
+              <span>Software Eng</span>
+            </div>
+
+            <div class="hero-photo-dots"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="mouse"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ===== EXPLORE DIMENSIONS (FEATURE GATEWAYS) ===== -->
+    <section class="section-portals" id="portals">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">✦ Explore The Universe</div>
+          <h2 class="section-title">
+            Enter A <span class="gradient-text">Dedicated Dimension</span>
+          </h2>
+          <p class="section-subtitle">
+            Explore dedicated standalone experiences crafted for every facet of my engineering journey.
+          </p>
+        </div>
+
+        <div class="portals-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <!-- 1. About Portal -->
+          <a href="about.html" class="portal-card reveal reveal-delay-1">
+            <div class="portal-card-top">
+              <span class="portal-icon">👨‍💻</span>
+              <div class="portal-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </div>
+            </div>
+            <div>
+              <h3>About Me</h3>
+              <p>Discover my philosophy, continuous growth mindset, and what drives me to engineer high-impact software.</p>
+            </div>
+            <span class="portal-tag">Explore Bio & Mindset →</span>
+          </a>
+
+          <!-- 2. Skills Portal -->
+          <a href="skills.html" class="portal-card reveal reveal-delay-2">
+            <div class="portal-card-top">
+              <span class="portal-icon">⚡</span>
+              <div class="portal-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </div>
+            </div>
+            <div>
+              <h3>Tech Arsenal</h3>
+              <p>Interactive verified skills, live search, mastery meters, programming languages, and CS fundamentals.</p>
+            </div>
+            <span class="portal-tag">View Tech Stack →</span>
+          </a>
+
+          <!-- 3. Projects Portal -->
+          <a href="projects.html" class="portal-card reveal reveal-delay-1">
+            <div class="portal-card-top">
+              <span class="portal-icon">🤖</span>
+              <div class="portal-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </div>
+            </div>
+            <div>
+              <h3>Featured Projects</h3>
+              <p>Explore CodeBot v3 — Native AI Coding Assistant, dual-tier hybrid inference engine, and static CWE security audit scanner.</p>
+            </div>
+            <span class="portal-tag">Explore CodeBot v3 →</span>
+          </a>
+
+          <!-- 4. Resume Portal -->
+          <a href="resume.html" class="portal-card reveal reveal-delay-2">
+            <div class="portal-card-top">
+              <span class="portal-icon">📄</span>
+              <div class="portal-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </div>
+            </div>
+            <div>
+              <h3>Interactive Resume</h3>
+              <p>Official Curriculum Vitae, competencies, academic credentials, and 1-click clean PDF print format.</p>
+            </div>
+            <span class="portal-tag">Inspect Resume →</span>
+          </a>
+
+          <a href="certifications.html" class="portal-card reveal reveal-delay-2" style="grid-column: 1 / -1;">
+            <div class="portal-card-top"><span class="portal-icon">🏆</span></div>
+            <div><h3>Certifications &amp; Achievements</h3><p>Explore 14 Microsoft Learn badges and my reported learning path trophy.</p></div>
+            <span class="portal-tag">Explore Achievements →</span>
+          </a>
+          <!-- 5. Contact Portal -->
+          <a href="contact.html" class="portal-card reveal reveal-delay-3" style="grid-column: 1 / -1;">
+            <div class="portal-card-top">
+              <span class="portal-icon">💬</span>
+              <div class="portal-arrow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </div>
+            </div>
+            <div>
+              <h3>Transmission Station</h3>
+              <p>Direct communication channels, 1-click email copy, LinkedIn network connection, and messaging terminal.</p>
+            </div>
+            <span class="portal-tag">Get In Touch →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Aagam.dev</div>
+        <p class="footer-text">
+          Designed & built with <span class="heart">♥</span> by Aagam Lodaria
+        </p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="resume.html">Resume</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

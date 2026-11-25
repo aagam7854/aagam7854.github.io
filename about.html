@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Aagam Lodaria — Software Engineer, Full Stack Developer & Data Analyst. Learn about my philosophy, values, and journey.">
+  <title>About Me — Aagam Lodaria</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body data-theme="violet">
+
+  <!-- Interactive Background Canvas -->
+  <canvas id="neuroCanvas"></canvas>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>Aagam<span class="logo-dot">.dev</span><span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="certifications.html" class="nav-link">Certifications</a></li>
+        <li><a href="resume.html" class="nav-link">Resume</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </nav>
+
+  <main id="mainContent">
+
+    <!-- Page Header -->
+    <section class="page-header-section">
+      <div class="container">
+        <div class="page-badge reveal">✦ Protocol: Identity & Mindset</div>
+        <h1 class="page-title reveal reveal-delay-1">
+          Behind The <span class="gradient-text">Code</span>
+        </h1>
+        <p class="page-subtitle reveal reveal-delay-2">
+          Passionate software engineer, full stack developer, and data analyst driven by curiosity, creativity, and building digital experiences that matter.
+        </p>
+      </div>
+    </section>
+
+    <!-- Detailed About Section -->
+    <section class="about" style="padding-top: 20px;">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-image-wrapper reveal reveal-delay-1">
+            <div class="about-image">
+              <img src="assets/images/aagam-photo.jpg" alt="Aagam Lodaria - Software Engineer">
+            </div>
+            <div class="about-image-frame"></div>
+            <div class="about-badge">
+              <div class="about-badge-number">∞</div>
+              <div class="about-badge-label">Growth Mindset</div>
+            </div>
+          </div>
+
+          <div class="about-text reveal reveal-delay-2">
+            <h3>Software Engineer & Creative Problem Solver</h3>
+            <p>
+              Hi, I'm a Software Engineer passionate about technology, problem-solving, and building digital experiences that make a difference.
+            </p>
+            <p>
+              I enjoy exploring new technologies, developing efficient and scalable solutions, and turning complex ideas into simple, user-friendly applications. I believe great software is not just about writing code—it's about understanding problems, thinking creatively, and creating solutions that provide real value.
+            </p>
+            <p>
+              Beyond technology, I'm a curious and growth-oriented individual who enjoys learning new things, exploring innovative ideas, and embracing challenges that help me grow both personally and professionally. I value creativity, consistency, teamwork, and continuous improvement.
+            </p>
+            <p>
+              When I'm not coding, I enjoy exploring new trends in technology, discovering fresh ideas, listening to music, and finding inspiration in everyday experiences. I'm always excited to learn, build, collaborate, and take on new challenges that push me beyond my comfort zone.
+            </p>
+            
+            <div class="philosophy">
+              "Stay curious, keep building, and never stop growing."
+            </div>
+
+            <div class="about-details">
+              <div class="about-detail-item">
+                <div class="about-detail-icon">🎓</div>
+                <div class="about-detail-text">
+                  <div class="about-detail-label">Education</div>
+                  <div class="about-detail-value">Computer Science</div>
+                </div>
+              </div>
+              <div class="about-detail-item">
+                <div class="about-detail-icon">📍</div>
+                <div class="about-detail-text">
+                  <div class="about-detail-label">Location</div>
+                  <div class="about-detail-value">India</div>
+                </div>
+              </div>
+              <div class="about-detail-item">
+                <div class="about-detail-icon">💼</div>
+                <div class="about-detail-text">
+                  <div class="about-detail-label">Focus Areas</div>
+                  <div class="about-detail-value">Full Stack, Software Eng, Data Analytics</div>
+                </div>
+              </div>
+              <div class="about-detail-item">
+                <div class="about-detail-icon">🚀</div>
+                <div class="about-detail-text">
+                  <div class="about-detail-label">Availability</div>
+                  <div class="about-detail-value">Open to Opportunities</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Core Engineering Pillars Grid -->
+        <div style="margin-top: 100px;">
+          <div class="section-header reveal">
+            <div class="section-label">✦ Core Principles</div>
+            <h2 class="section-title">
+              What Guides <span class="gradient-text">My Work</span>
+            </h2>
+          </div>
+
+          <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+            <div class="skill-category reveal reveal-delay-1">
+              <div class="skill-category-icon">💡</div>
+              <h3>Curiosity & Innovation</h3>
+              <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-top: 8px;">
+                Always experimenting with cutting-edge tech, diving deep into fundamentals, and finding novel ways to solve complex problems.
+              </p>
+            </div>
+
+            <div class="skill-category reveal reveal-delay-2">
+              <div class="skill-category-icon">📐</div>
+              <h3>Clean & Scalable Code</h3>
+              <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-top: 8px;">
+                Committed to writing readable, maintainable, modular, and optimized code adhering to established software engineering best practices.
+              </p>
+            </div>
+
+            <div class="skill-category reveal reveal-delay-3">
+              <div class="skill-category-icon">🤝</div>
+              <h3>Teamwork & Empathy</h3>
+              <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-top: 8px;">
+                Strong belief that great software is built together. Clear communication, mutual respect, and active listening are fundamental.
+              </p>
+            </div>
+
+            <div class="skill-category reveal reveal-delay-4">
+              <div class="skill-category-icon">📈</div>
+              <h3>Continuous Growth</h3>
+              <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-top: 8px;">
+                Every challenge is an opportunity to expand skills, sharpen algorithmic thinking, and evolve both professionally and personally.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Next Page Navigation Banner -->
+        <div style="margin: 90px 0 30px; text-align: center;" class="reveal">
+          <h3 style="font-size: 1.6rem; margin-bottom: 20px;">Ready to explore my technical work?</h3>
+          <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a href="skills.html" class="btn btn-primary">
+              <span>Inspect Tech Arsenal</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="projects.html" class="btn btn-secondary">
+              <span>Explore Featured Projects</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">Aagam.dev</div>
+        <p class="footer-text">
+          Designed & built with <span class="heart">♥</span> by Aagam Lodaria
+        </p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="certifications.html">Certifications</a>
+          <a href="resume.html">Resume</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
