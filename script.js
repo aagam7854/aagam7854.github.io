@@ -375,7 +375,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     requestAnimationFrame(renderNeuro);
   }
-  if (neuroCanvas && ctx && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (neuroCanvas && ctx && document.getElementById('introScreen')) renderNeuro();
+  else if (neuroCanvas && ctx && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     requestAnimationFrame(() => requestAnimationFrame(() => {
       if ('requestIdleCallback' in window) requestIdleCallback(renderNeuro, {timeout: 800});
       else setTimeout(renderNeuro, 150);
@@ -482,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(updateFps);
     }
   }
-  // FPS ticker is not needed while the intro is hidden.
+  if (introScreen) requestAnimationFrame(updateFps);
 
   // Scrambler text decoding effect
   function scrambleText(element, finalText, duration = 1200) {
@@ -590,8 +591,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (introSkip) introSkip.addEventListener('click', exitIntro);
 
-  // Main content is immediately accessible.
+  // Prepare homepage counters behind the original cinematic intro.
   animateCounters();
+  if (introScreen) startIntroSequence();
 
   // Replay Intro Button in Dock
   const dockReplayBtn = document.getElementById('dockReplayBtn');
@@ -621,6 +623,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (introPhotoName) introPhotoName.classList.remove('visible');
       if (introPhotoRole) introPhotoRole.classList.remove('visible');
 
+      requestAnimationFrame(updateFps);
       startIntroSequence();
     });
   }
@@ -667,7 +670,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(typeEffect, typingSpeed);
   }
-  if (typedTextEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(typeEffect, 3500);
+  function startHeroTypingWhenVisible() {
+    if (introScreen && !introScreen.hidden) { setTimeout(startHeroTypingWhenVisible, 250); return; }
+    setTimeout(typeEffect, 3500);
+  }
+  if (typedTextEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) startHeroTypingWhenVisible();
 
 
   // ==========================================

@@ -4282,7 +4282,7 @@ ul {
   border-color: rgba(148, 163, 184, 0.2);
 }
 
-/* Fast first paint: keep the cinematic sequence available on demand. */
+/* Fast first paint: prepare the homepage behind the cinematic sequence. */
 .intro-screen[hidden] { display: none !important; }
 .hero-greeting, .hero-name, .hero-typing-wrapper, .hero-description, .hero-cta, .hero-stats, .hero-photo-wrapper { opacity: 1; animation: none; }
 .intro-replay-link { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
