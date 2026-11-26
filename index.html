@@ -15,7 +15,9 @@
 
   <title>Aagam Lodaria — Software Engineer & Developer</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css?v=2">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body data-theme="violet">
@@ -28,7 +30,7 @@
   <div class="cursor-ring" id="cursorRing"></div>
 
   <!-- ===== INTRO / SPLASH SCREEN (HYPERSPACE CYBER-GATE) ===== -->
-  <div class="intro-screen" id="introScreen">
+  <div class="intro-screen" id="introScreen" hidden>
     <!-- Skip to Site Button -->
     <button class="intro-skip" id="introSkip" aria-label="Enter Site">
       <span>ENTER SITE</span>
@@ -77,7 +79,7 @@
       
       <!-- Photo Container with Holographic Scan -->
       <div class="intro-photo" id="introPhoto">
-        <img src="assets/images/aagam-photo.jpg" alt="Aagam Lodaria">
+        <img src="assets/images/aagam-photo.webp" alt="Aagam Lodaria" decoding="async" loading="lazy">
         <div class="intro-photo-scanner"></div>
         <div class="intro-photo-glitch"></div>
       </div>
@@ -143,7 +145,7 @@
               <span class="highlight">Lodaria</span>
             </h1>
             <div class="hero-typing-wrapper">
-              <span class="typed-text" id="typedText"></span>
+              <span class="typed-text" id="typedText">Software Engineer</span>
               <span class="typing-cursor"></span>
             </div>
             <p class="hero-description">
@@ -168,7 +170,7 @@
             <div class="hero-gyro-ring hero-gyro-1"></div>
             <div class="hero-gyro-ring hero-gyro-2"></div>
             <div class="hero-photo" id="heroPhotoEl">
-              <img src="assets/images/aagam-photo.jpg" alt="Aagam Lodaria">
+              <img src="assets/images/aagam-photo.webp" alt="Aagam Lodaria" fetchpriority="high" decoding="async">
               <div class="hero-photo-shine"></div>
             </div>
             
@@ -309,6 +311,7 @@
           Designed & built with <span class="heart">♥</span> by Aagam Lodaria
         </p>
         <div class="footer-links">
+          <button type="button" id="dockReplayBtn" class="intro-replay-link">Replay intro</button>
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="skills.html">Skills</a>
@@ -321,6 +324,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2" defer></script>
 </body>
 </html>

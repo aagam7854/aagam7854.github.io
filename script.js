@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist > 0 && dist < 120) {
             const force = (120 - dist) / 120;
             this.x -= (dx / dist) * force * 3;
             this.y -= (dy / dist) * force * 3;
@@ -375,7 +375,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     requestAnimationFrame(renderNeuro);
   }
-  if (neuroCanvas && ctx) renderNeuro();
+  if (neuroCanvas && ctx && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if ('requestIdleCallback' in window) requestIdleCallback(renderNeuro, {timeout: 800});
+      else setTimeout(renderNeuro, 150);
+    }));
+  }
 
   window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
@@ -459,9 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const introSkip = document.getElementById('introSkip');
   const introFps = document.getElementById('introFps');
 
-  if (introScreen) {
-    document.body.classList.add('intro-active');
-  }
+  
 
   // Real-time FPS ticker for the cyber HUD
   let lastFrameTime = performance.now();
@@ -479,7 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(updateFps);
     }
   }
-  requestAnimationFrame(updateFps);
+  // FPS ticker is not needed while the intro is hidden.
 
   // Scrambler text decoding effect
   function scrambleText(element, finalText, duration = 1200) {
@@ -577,6 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (introScreen) {
       introScreen.classList.add('phase-exit');
       setTimeout(() => {
+        introScreen.hidden = true;
         introScreen.style.display = 'none';
         document.body.classList.remove('intro-active');
         animateCounters();
@@ -586,12 +590,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (introSkip) introSkip.addEventListener('click', exitIntro);
 
-  // Start sequence if on home page
-  if (introScreen) {
-    startIntroSequence();
-  } else {
-    animateCounters();
-  }
+  // Main content is immediately accessible.
+  animateCounters();
 
   // Replay Intro Button in Dock
   const dockReplayBtn = document.getElementById('dockReplayBtn');
@@ -604,6 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top: 0, behavior: 'instant' });
       document.body.classList.add('intro-active');
 
+      introScreen.hidden = false;
       introScreen.style.display = 'flex';
       introScreen.classList.remove('phase-exit');
       if (introShockwave) introShockwave.classList.remove('trigger');
@@ -637,8 +638,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'Curious Technologist'
   ];
   let roleIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
+  let charIndex = roles[0].length;
+  let isDeleting = true;
   let typingSpeed = 90;
 
   function typeEffect() {
@@ -666,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(typeEffect, typingSpeed);
   }
-  typeEffect();
+  if (typedTextEl && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(typeEffect, 3500);
 
 
   // ==========================================

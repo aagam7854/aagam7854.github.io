@@ -4281,3 +4281,10 @@ ul {
   color: #94a3b8;
   border-color: rgba(148, 163, 184, 0.2);
 }
+
+/* Fast first paint: keep the cinematic sequence available on demand. */
+.intro-screen[hidden] { display: none !important; }
+.hero-greeting, .hero-name, .hero-typing-wrapper, .hero-description, .hero-cta, .hero-stats, .hero-photo-wrapper { opacity: 1; animation: none; }
+.intro-replay-link { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+.intro-replay-link:hover, .intro-replay-link:focus-visible { color: var(--accent-cyan); text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) { .hero .wave, .hero .typing-cursor, .hero .orbit-badge, .hero .hero-gyro-ring, .hero .hero-photo-glow { animation: none !important; } }
