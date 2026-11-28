@@ -460,9 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const introSkip = document.getElementById('introSkip');
   const introFps = document.getElementById('introFps');
 
-  if (introScreen) {
-    document.body.classList.add('intro-active');
-  }
+  const replayRequested = !matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Real-time FPS ticker for the cyber HUD
   let lastFrameTime = performance.now();
@@ -476,11 +474,11 @@ document.addEventListener('DOMContentLoaded', () => {
       frameCount = 0;
       lastFrameTime = now;
     }
-    if (introScreen && !introScreen.classList.contains('phase-exit')) {
+    if (introScreen && introScreen.style.display !== 'none' && !introScreen.classList.contains('phase-exit')) {
       requestAnimationFrame(updateFps);
     }
   }
-  requestAnimationFrame(updateFps);
+  // FPS ticker starts only during replay.
 
   // Scrambler text decoding effect
   function scrambleText(element, finalText, duration = 1200) {
@@ -589,7 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Start sequence if on home page
   if (introScreen) {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) exitIntro(); else startIntroSequence();
+    if (replayRequested) { document.body.classList.add('intro-active'); introScreen.style.display = 'flex'; requestAnimationFrame(updateFps); startIntroSequence(); } else { animateCounters(); }
   } else {
     animateCounters();
   }
@@ -621,6 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (introPhotoName) introPhotoName.classList.remove('visible');
       if (introPhotoRole) introPhotoRole.classList.remove('visible');
 
+      requestAnimationFrame(updateFps);
       startIntroSequence();
     });
   }
@@ -1104,8 +1103,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'projects': 'projects.html',
             'project': 'projects.html',
             'codebot': 'projects.html',
-            'experience': 'projects.html',
-            'journey': 'projects.html',
+            'experience': 'experience.html',
+            'journey': 'experience.html',
             'resume': 'resume.html',
             'cv': 'resume.html',
             'contact': 'contact.html'
@@ -1116,9 +1115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             res.className = 'term-output-line success';
             res.textContent = `[NAVIGATING] Routing to ${pageMap[arg]}...`;
             termHistory.appendChild(res);
-            setTimeout(() => {
-              window.location.href = pageMap[arg];
-            }, 400);
+            window.location.href = pageMap[arg];
           } else {
             const res = document.createElement('div');
             res.className = 'term-output-line error';
