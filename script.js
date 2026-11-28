@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let mouse = { x: width / 2, y: height / 2, moved: false };
   let warpSpeed = false;
   let particles = [];
-  const PARTICLE_COUNT = Math.min(85, Math.floor((width * height) / 14000));
+  const PARTICLE_COUNT = Math.min(42, Math.floor((width * height) / 26000));
 
   window.addEventListener('resize', () => {
     width = window.innerWidth;
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist > 0 && dist < 120) {
             const force = (120 - dist) / 120;
             this.x -= (dx / dist) * force * 3;
             this.y -= (dy / dist) * force * 3;
@@ -345,6 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderNeuro() {
     if (!ctx) return;
+    if (document.hidden) { requestAnimationFrame(renderNeuro); return; }
     ctx.clearRect(0, 0, width, height);
 
     // Connect particles
@@ -375,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     requestAnimationFrame(renderNeuro);
   }
-  if (neuroCanvas && ctx) renderNeuro();
+  if (neuroCanvas && ctx && !matchMedia("(prefers-reduced-motion: reduce), (pointer: coarse)").matches) renderNeuro();
 
   window.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX;
@@ -411,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(renderCursorRing);
   }
-  renderCursorRing();
+  if (matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches) renderCursorRing();
 
   // Hover detection for magnetic cursor
   const interactiveElements = document.querySelectorAll(
@@ -518,7 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const t = setTimeout(() => {
         letter.classList.add('animate');
         playTerminalBeep();
-      }, 350 + idx * 85);
+      }, 80 + idx * 45);
       introTimeouts.push(t);
     });
 
@@ -526,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
     introTimeouts.push(setTimeout(() => {
       if (introLineTop) introLineTop.classList.add('visible');
       if (introLineBottom) introLineBottom.classList.add('visible');
-    }, 1100));
+    }, 400));
 
     // Scramble decode subtitle
     introTimeouts.push(setTimeout(() => {
@@ -534,35 +535,35 @@ document.addEventListener('DOMContentLoaded', () => {
         introSubtitle.classList.add('visible');
         scrambleText(introSubtitle, 'AAGAM LODARIA', 1000);
       }
-    }, 1250));
+    }, 480));
 
     // Fill loading meter
     introTimeouts.push(setTimeout(() => {
       if (introLoaderFill) introLoaderFill.style.width = '100%';
-    }, 1300));
+    }, 500));
 
     // Stage 2: Hyperspace zoom-through -> Photo Holo-Deck Portal
     introTimeouts.push(setTimeout(() => {
       if (introTextWrapper) introTextWrapper.classList.add('fade-out');
       warpSpeed = true; // Particles streak into hyperspace!
       playWarpWhoosh();
-    }, 2800));
+    }, 1050));
 
     introTimeouts.push(setTimeout(() => {
       if (introPhotoWrapper) introPhotoWrapper.classList.add('visible');
       if (introPhoto) introPhoto.classList.add('visible');
-    }, 3300));
+    }, 1300));
 
     introTimeouts.push(setTimeout(() => {
       if (introBioTag) introBioTag.classList.add('visible');
       if (introPhotoName) introPhotoName.classList.add('visible');
       if (introPhotoRole) introPhotoRole.classList.add('visible');
-    }, 4000));
+    }, 1550));
 
     // Stage 3: Dimensional Shockwave Breach into Main Site
     introTimeouts.push(setTimeout(() => {
       exitIntro();
-    }, 5600));
+    }, 2300));
   }
 
   function exitIntro() {
@@ -580,7 +581,7 @@ document.addEventListener('DOMContentLoaded', () => {
         introScreen.style.display = 'none';
         document.body.classList.remove('intro-active');
         animateCounters();
-      }, 1000);
+      }, 350);
     }
   }
 
@@ -588,7 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Start sequence if on home page
   if (introScreen) {
-    startIntroSequence();
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) exitIntro(); else startIntroSequence();
   } else {
     animateCounters();
   }
@@ -633,8 +634,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'Software Engineer',
     'Full Stack Developer',
     'Data Analyst',
-    'Digital Content Creator',
-    'Tech Enthusiast'
+    'Creative Problem Solver',
+    'Curious Technologist'
   ];
   let roleIndex = 0;
   let charIndex = 0;
@@ -812,12 +813,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const navOverlay = document.getElementById('navOverlay');
 
   function toggleMobileNav() {
-    if (navToggle) navToggle.classList.toggle('active');
+    if (navToggle) { navToggle.classList.toggle('active'); navToggle.setAttribute('aria-expanded', String(navToggle.classList.contains('active'))); }
     if (navLinks) navLinks.classList.toggle('active');
     if (navOverlay) navOverlay.classList.toggle('active');
   }
 
-  if (navToggle) navToggle.addEventListener('click', toggleMobileNav);
+  if (navToggle) { navToggle.addEventListener('click', toggleMobileNav); navToggle.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMobileNav(); } }); }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && navLinks?.classList.contains('active')) { toggleMobileNav(); navToggle?.focus(); } });
   if (navOverlay) navOverlay.addEventListener('click', toggleMobileNav);
   document.querySelectorAll('.nav-link, .nav-dropdown-link').forEach(link => {
     link.addEventListener('click', () => {
@@ -1041,8 +1043,8 @@ document.addEventListener('DOMContentLoaded', () => {
       '  (Type "goto projects" to open full project page)'
     ],
     journey: () => [
-      '🤖 Engineering journey has transitioned to Featured Projects!',
-      '  (Type "goto projects" to open CodeBot v3)'
+      '🤖 Professional experience: Zewel Works, Korakendra and Strange Productions.',
+      '  (Open the Experience page from navigation)'
     ],
     resume: () => [
       '📄 CURRICULUM VITAE:',
@@ -1170,31 +1172,12 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       playClickLaser();
 
-      const originalHTML = formSubmit.innerHTML;
-      formSubmit.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;">
-          <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
-        </svg>
-        Transmitting...
-      `;
-      formSubmit.disabled = true;
+      const data = new FormData(contactForm);
+      const subject = data.get('subject') || 'Portfolio enquiry';
+      const body = `Name: ${data.get('name')}\nEmail: ${data.get('email')}\n\n${data.get('message')}`;
+      window.location.href = `mailto:aagam7854@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      formSubmit.textContent = 'Open email draft';
 
-      setTimeout(() => {
-        formSubmit.innerHTML = `
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
-          Signal Received!
-        `;
-        formSubmit.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-
-        setTimeout(() => {
-          formSubmit.innerHTML = originalHTML;
-          formSubmit.disabled = false;
-          formSubmit.style.background = '';
-          contactForm.reset();
-        }, 3200);
-      }, 1400);
     });
   }
 

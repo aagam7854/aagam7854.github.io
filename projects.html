@@ -9,6 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body data-theme="violet">
+<a class="skip-link" href="#mainContent">Skip to content</a>
 
   <!-- Interactive Background Canvas -->
   <canvas id="neuroCanvas"></canvas>
@@ -37,7 +38,7 @@
         <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <div class="nav-toggle" id="navToggle">
+        <div class="nav-toggle" id="navToggle" role="button" tabindex="0" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -47,7 +48,7 @@
     <div class="nav-overlay" id="navOverlay"></div>
   </nav>
 
-  <main id="mainContent">
+  <main id="mainContent" tabindex="-1">
 
     <!-- Page Header -->
     <section class="page-header-section" style="padding-bottom: 20px;">
@@ -326,7 +327,7 @@
           <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
             <a href="skills.html" class="btn btn-secondary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <span>Explore Skills</span>
+              <span>Explore Tech Arsenal</span>
             </a>
             <a href="contact.html" class="btn btn-primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
@@ -362,6 +363,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

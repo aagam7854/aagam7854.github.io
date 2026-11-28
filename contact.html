@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Contact Aagam Lodaria — Software Engineer, Full Stack Developer & Data Analyst. Email: aagam7854@gmail.com, LinkedIn: Aagam Lodaria.">
-  <title>Contact (Contact) — Aagam Lodaria</title>
+  <title>Transmission Station (Contact) — Aagam Lodaria</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body data-theme="violet">
+<a class="skip-link" href="#mainContent">Skip to content</a>
 
   <!-- Interactive Background Canvas -->
   <canvas id="neuroCanvas"></canvas>
@@ -37,7 +38,7 @@
         <li><a href="contact.html" class="nav-link active nav-cta">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <div class="nav-toggle" id="navToggle">
+        <div class="nav-toggle" id="navToggle" role="button" tabindex="0" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -47,7 +48,7 @@
     <div class="nav-overlay" id="navOverlay"></div>
   </nav>
 
-  <main id="mainContent">
+  <main id="mainContent" tabindex="-1">
 
     <!-- Page Header -->
     <section class="page-header-section">
@@ -119,7 +120,7 @@
         <!-- Interactive Transmission Console Form -->
         <div class="contact-wrapper" style="margin-top: 60px;">
           <div class="contact-info reveal reveal-delay-1">
-            <h3>Let’s Work Together</h3>
+            <h3>Let's Build Something Revolutionary</h3>
             <p>
               I am always eager to collaborate with inspiring people, solve challenging technical problems, and contribute to products that create tangible impact.
             </p>
@@ -163,7 +164,7 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               Transmit Message
             </button>
-          </form>
+          <p class="contact-note">This form opens your email app with a prepared message. Nothing is sent until you send it.</p></form>
         </div>
 
         <!-- FAQ Section -->
@@ -226,6 +227,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

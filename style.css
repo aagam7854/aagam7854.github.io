@@ -4,7 +4,7 @@
    ======================================== */
 
 /* === Google Fonts === */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 
 /* === CSS Custom Properties & Dynamic Themes === */
 :root,
@@ -4282,4 +4282,8 @@ ul {
   border-color: rgba(148, 163, 184, 0.2);
 }
 
-.work-section{padding:48px 0}.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px;margin:24px 0}.work-card{padding:24px;border:1px solid var(--border-subtle);background:var(--bg-card);border-radius:var(--radius-md)}.work-card h3{margin:8px 0}.work-card p{color:var(--text-secondary);margin-top:10px}.work-status{color:var(--accent-core);font-size:.8rem}.nav-links{gap:clamp(8px,1.2vw,20px)}
+/* Portfolio usability and performance */
+.work-section{padding:56px 0}.work-section h2{font-size:clamp(1.65rem,3vw,2.6rem);margin:12px 0}.work-lead{max-width:760px;color:var(--text-secondary);margin:0 0 24px;line-height:1.7}.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px}.work-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:18px;padding:24px;line-height:1.65;min-width:0}.work-card h3{font-size:1.45rem;margin:10px 0 4px}.work-card p,.work-card li{color:var(--text-secondary)}.work-card .work-role{color:var(--accent-cyan);font-weight:600;margin-bottom:12px}.work-card ul{padding-left:20px;margin-top:14px;list-style:disc}.work-status{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:var(--accent-cyan)}.resume-work{margin-bottom:30px}.resume-work h3{margin-top:14px}.resume-work p{color:var(--text-secondary);line-height:1.6}.skip-link{position:fixed;top:8px;left:8px;z-index:100000;background:#fff;color:#111;padding:12px;transform:translateY(-150%)}.skip-link:focus{transform:none}a:focus-visible,button:focus-visible,[role=button]:focus-visible{outline:2px solid var(--accent-cyan);outline-offset:4px}.contact-note{font-size:.85rem;color:var(--text-secondary);margin-top:12px}.intro-screen.phase-exit{animation-duration:.35s}.intro-letter.animate{animation-duration:.45s}.nav-links{gap:clamp(8px,1.3vw,22px)}
+@media(pointer:coarse){.cursor-dot,.cursor-ring,#neuroCanvas{display:none!important}body,a,button{cursor:auto!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.cursor-dot,.cursor-ring,#neuroCanvas{display:none!important}}
+@media print{.work-card{break-inside:avoid}.resume-work p{color:#222!important}.skip-link{display:none}}

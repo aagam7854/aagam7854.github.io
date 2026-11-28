@@ -9,6 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body data-theme="violet">
+<a class="skip-link" href="#mainContent">Skip to content</a>
 
   <!-- Interactive Background Canvas -->
   <canvas id="neuroCanvas"></canvas>
@@ -37,7 +38,7 @@
         <li><a href="contact.html" class="nav-link nav-cta">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <div class="nav-toggle" id="navToggle">
+        <div class="nav-toggle" id="navToggle" role="button" tabindex="0" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -47,12 +48,12 @@
     <div class="nav-overlay" id="navOverlay"></div>
   </nav>
 
-  <main id="mainContent">
+  <main id="mainContent" tabindex="-1">
 
     <!-- Page Header -->
     <section class="page-header-section">
       <div class="container">
-        <div class="page-badge reveal">✦ About</div>
+        <div class="page-badge reveal">✦ Protocol: Identity & Mindset</div>
         <h1 class="page-title reveal reveal-delay-1">
           Behind The <span class="gradient-text">Code</span>
         </h1>
@@ -68,7 +69,7 @@
         <div class="about-content">
           <div class="about-image-wrapper reveal reveal-delay-1">
             <div class="about-image">
-              <img src="assets/images/aagam-photo.jpg" alt="Aagam Lodaria - Software Engineer">
+              <img decoding="async" src="assets/images/aagam-photo.jpg" alt="Aagam Lodaria - Software Engineer">
             </div>
             <div class="about-image-frame"></div>
             <div class="about-badge">
@@ -77,7 +78,26 @@
             </div>
           </div>
 
-          <div class="about-text reveal reveal-delay-2"><h3>Developer, data enthusiast and creative technologist</h3><p>I am a computer engineering student who enjoys working on software, data and visual content.</p><p>At Zewel Works, I create and edit images for social media marketing and manage Myntra, Nykaa and AJIO. I like combining technical skills with creative work.</p><p>I am also starting a role at Korakendra Grounds as a software developer and data analyst.</p><p><a class="btn btn-secondary" href="experience.html">More about my experience</a></p><div class="about-details">
+          <div class="about-text reveal reveal-delay-2">
+            <h3>Software Engineer & Creative Problem Solver</h3>
+            <p>
+              Hi, I'm a Software Engineer passionate about technology, problem-solving, and building digital experiences that make a difference.
+            </p>
+            <p>
+              I enjoy exploring new technologies, developing efficient and scalable solutions, and turning complex ideas into simple, user-friendly applications. I believe great software is not just about writing code—it's about understanding problems, thinking creatively, and creating solutions that provide real value.
+            </p>
+            <p>
+              Beyond technology, I'm a curious and growth-oriented individual who enjoys learning new things, exploring innovative ideas, and embracing challenges that help me grow both personally and professionally. I value creativity, consistency, teamwork, and continuous improvement.
+            </p>
+            <p>
+              When I'm not coding, I enjoy exploring new trends in technology, discovering fresh ideas, listening to music, and finding inspiration in everyday experiences. I'm always excited to learn, build, collaborate, and take on new challenges that push me beyond my comfort zone.
+            </p>
+            
+            <div class="philosophy">
+              "Stay curious, keep building, and never stop growing."
+            </div>
+
+            <div class="about-details">
               <div class="about-detail-item">
                 <div class="about-detail-icon">🎓</div>
                 <div class="about-detail-text">
@@ -159,7 +179,7 @@
           <h3 style="font-size: 1.6rem; margin-bottom: 20px;">Ready to explore my technical work?</h3>
           <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
             <a href="skills.html" class="btn btn-primary">
-              <span>Inspect Skills</span>
+              <span>Inspect Tech Arsenal</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
             </a>
             <a href="projects.html" class="btn btn-secondary">
@@ -172,7 +192,7 @@
       </div>
     </section>
 
-  </main>
+  <section class="work-section" id="professional-experience"><div class="container"><div class="section-label">Professional experience</div><h2>Technology meets <span class="gradient-text">real business.</span></h2><p class="work-lead">From marketplace operations and creative campaigns to websites and technology support, I work at the intersection of business, design and software.</p><div class="work-grid"><article class="work-card"><span class="work-status">Current</span><h3>Zewel Works</h3><p class="work-role">E-commerce, Digital Marketing & Creative Technology</p><p>I manage marketplace operations across Myntra, Nykaa and AJIO, alongside Instagram marketing and visual content creation.</p><ul><li>Marketplace inventory and SKU coordination</li><li>Product catalogue and promotional support</li><li>Instagram campaign creatives and jewellery image production</li><li>Digital workflow and inventory data management</li></ul></article><article class="work-card"><span class="work-status">Starting</span><h3>Korakendra</h3><p class="work-role">Website Development & Technology Support</p><p>I am beginning work on Korakendra’s website and technology requirements, with a focus on a clear, responsive digital experience.</p><ul><li>Website planning and development</li><li>Responsive interfaces and content organization</li><li>Technical maintenance and digital workflow support</li></ul></article><article class="work-card"><span class="work-status">Starting</span><h3>Strange Productions</h3><p class="work-role">Website Development & Technology Support</p><p>I am beginning work on website development and technology management for Strange Productions.</p><ul><li>Website design and implementation</li><li>Digital presence and technical coordination</li><li>Ongoing website maintenance and technology support</li></ul></article></div></div></section></main>
 
   <!-- Footer -->
   <footer class="footer">
@@ -196,6 +216,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,1 @@
+Open index.html to preview. For GitHub Pages, upload the contents of this ZIP to the repository root. The intro plays on home visits and can be skipped. Theme preference uses local storage. Contact form opens an email draft; no backend is configured. Korakendra and Strange Productions are marked as starting engagements. Sitemap assumes https://aagam7854.github.io/.
